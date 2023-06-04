@@ -1,0 +1,80 @@
+@import "../globals/globals";
+
+.footer{
+    background: $navbar-bg;
+    // box-shadow: 0px -5px 10px -5px rgba(0, 0, 0, 1);
+    color: $white;
+    font-family: $font;
+    padding: 3rem 0;
+    .footerImgWrapper{
+        display: flex !important;
+        justify-content: center;
+        a{
+            text-align: center;
+            img{
+                width:45%;
+                height: auto;
+            }
+        }
+
+    }
+    .footerContentWrapper{
+        text-align: center !important;
+        .footerContentCols{
+
+            h3{
+                font-family: $font;
+                text-decoration: underline;
+                font-weight: 600;
+            }
+
+            ul{
+                list-style: none;
+                padding: 0;
+                    li{ 
+                        margin-bottom: 1rem;
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                        a{
+                            color: $white;
+                            font-size: 1.1rem;
+                            transition: all 0.3s;
+                            display: block;
+                            &:hover{
+                                color: $accent-2;
+                                transform: translateY(-0.2rem);
+                            }
+                        }
+                    }
+
+            }
+            .footerItemIcon{
+                li{
+                    display: inline-flex !important;
+                    margin-right: 1rem;
+                    &:last-child{
+                        margin-right: 0;
+                    }
+                    a{
+                        font-size: 1.5rem;
+                        background: $accent-20;
+                        padding: 1rem;
+                        border-radius: 50%;
+                        &:hover{
+                            background: $accent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .copyrightWrapper{
+        .copyright{
+            text-align: center !important;
+            span{
+                color: $copyright-text;
+            }
+        }
+    }
+}

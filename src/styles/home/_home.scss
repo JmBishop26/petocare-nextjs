@@ -1,0 +1,101 @@
+@import '../globals/globals';
+
+.banner{
+    background: $navbar-bg;
+    box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 1);
+    .bannerGrid{
+        height: 100vh;
+        .bannerImageWrapper{
+        
+            .bannerImage{
+                width: 100%;
+                height: auto;
+            }
+        }
+        .bannerTagWrapper{
+            
+            .bannerTag{
+                font-family: $font;
+                color: white;
+                font-size: 4rem;
+                text-shadow: 4px 4px 10px rgba(0,0,0,0.6);
+
+            }
+            .btnWrapper{
+                text-align: center;
+                margin-top: 3rem;
+                a{
+                    font-family: $font;
+                    background: transparent;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    color: $white;
+                    padding: 1rem 2rem;
+                    border: 2px solid $white;
+                    border-radius: 0.5rem;
+                    transition: 0.7s;
+                    &:hover, &:focus{
+                        border: 2px solid $accent;
+                        color: $accent-2;
+                        box-shadow: inset 24rem 0 0 0 $accent;
+                        text-shadow: 4px 4px 10px rgba(0,0,0,0.6);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.products{
+    background: $accent-2;
+    font-family: $font;
+    padding: 2rem;
+    .productsGrid{
+        .productsCardWrapper{
+            
+            .productCard{
+                border-radius: 0.5rem;
+                .productPriceWrapper{
+                    margin: 1rem;
+                    text-align: right;
+                    .productPrice{
+                        background: $accent;
+                        color: $navbar-bg;
+                    }
+                }
+                .productImg{
+                    width: 100%;
+                    height: auto;
+                    transition: all 0.5s;
+                    &:hover{
+                        transform: scale(0.9);
+                    }
+                }
+                .productCardContent{
+                    .productName{
+                        font-family: $font;
+                    }
+
+                }
+                .productBtn{
+                    display: block;
+                    border: 1px solid $navbar-bg;
+                    color: $navbar-bg;
+                    padding: 0.5rem 1rem;
+                    height: auto;
+                    width: 100%;
+                    text-align: center;
+                    transition: 0.7s;
+                    border-radius: 0.25rem;
+                    font-weight: 600;
+                    &:hover, &:focus{
+                        border: 1px solid $accent;
+                        color: $accent-2;
+                        box-shadow: inset 13rem 0 0 0 $accent;
+                    }
+                }
+            }
+        }
+        
+    }
+}
