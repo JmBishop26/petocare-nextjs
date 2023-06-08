@@ -1,9 +1,14 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { connectDb } from "../lib/connection"
-import { getProducts, postProducts } from "@/models/api/products"
-export default function handler(req, res) {
-  connectDb().catch(()=>res.status(405).json({error: "Connection error"}))
-  // postProducts(req, res)
-  getProducts(req, res)
-  // res.status(200).json({ name: 'John Doe' })
+import clientPromise from "@/lib/mongodb";
+
+export default async (req, res) => {
+  try {
+      const client = await clientPromise;
+      const db = await client.db()
+      const data = await db.collection("products").find({}).toArray()
+
+      res.json(data);
+
+  } catch (e) {
+      console.error(e);
+  }
 }

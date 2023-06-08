@@ -5,7 +5,11 @@ import Image from 'next/image';
 import styles from '../../src/styles/modules/Home.module.scss'
 import Link from 'next/link';
 
-export default function Home () {
+export default function Home (props) {
+
+    const { products, } = props
+
+    console.log(products)
     return (
     <>
         <section className={styles.banner}>
@@ -29,26 +33,30 @@ export default function Home () {
             <Container>
                 <Grid className={styles.productsGrid} columns={5}>
                     <Grid.Row verticalAlign='middle'>
-                        <Grid.Column className={styles.productsCardWrapper}>
-                            <Card className={styles.productCard}>
-                                <div className={styles.productPriceWrapper}>
-                                    <Label className={styles.productPrice} tag>$3.00</Label>
-                                    </div>
-                                <Image className={styles.productImg}  src='/img/products/dog-shamp.jpg' wrapped ui={false}  width={720} height={1280}/>
-                                <Card.Content className={styles.productCardContent}>
-                                    <Card.Header className={styles.productName}>Dog Shampoo</Card.Header>
-                                    <Card.Meta className={styles.productCategory}>
-                                        <span>Category</span>
-                                    </Card.Meta>
-                                    <Card.Description className={styles.productDesc}>
-                                        Description for dog shampoo
-                                    </Card.Description>
-                                </Card.Content>
-                                <Card.Content extra>
-                                    <Link href="#" className={styles.productBtn}>Buy Now</Link>
-                                </Card.Content>
-                            </Card>
-                        </Grid.Column>
+                        {
+                            products.map((item, index)=>(
+                                <Grid.Column className={styles.productsCardWrapper} key={index}>
+                                    <Card className={styles.productCard}>
+                                        <div className={styles.productPriceWrapper}>
+                                            <Label className={styles.productPrice} tag>{`$ ${item.price.$numberDecimal}`}</Label>
+                                            </div>
+                                        <Image className={styles.productImg}  src={`/img/products/${item.image}`} wrapped width={720} height={1280}/>
+                                        <Card.Content className={styles.productCardContent}>
+                                            <Card.Header className={styles.productName}>{item.name}</Card.Header>
+                                            <Card.Meta className={styles.productCategory}>
+                                                <span>{item.category}</span>
+                                            </Card.Meta>
+                                            <Card.Description className={styles.productDesc}>
+                                                {item.description}
+                                            </Card.Description>
+                                        </Card.Content>
+                                        <Card.Content extra>
+                                            <Link href="#" className={styles.productBtn}>Buy Now</Link>
+                                        </Card.Content>
+                                    </Card>
+                                </Grid.Column>
+                            ))
+                        }
                     </Grid.Row>
                 </Grid>
             </Container>
@@ -56,3 +64,4 @@ export default function Home () {
     </>
   );
 };
+
