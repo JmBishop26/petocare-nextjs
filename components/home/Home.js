@@ -8,8 +8,6 @@ import Link from 'next/link';
 export default function Home (props) {
 
     const { products, } = props
-
-    console.log(products)
     return (
     <>
         <section className={styles.banner}>
@@ -17,12 +15,12 @@ export default function Home (props) {
                 <Grid className={styles.bannerGrid}>
                     <Grid.Row verticalAlign='middle'>
                         <Grid.Column className={styles.bannerImageWrapper} computer={8} verticalAlign='middle' >
-                            <Image className={styles.bannerImage} src={image}/>
+                            <Image className={styles.bannerImage} src={image} alt="Pet-O-Care Banner Image"/>
                         </Grid.Column>
                         <Grid.Column className={styles.bannerTagWrapper} computer={8} verticalAlign='middle'>
                             <h1 className={styles.bannerTag}>The best care<br/>for your best friend</h1>
                             <div className={styles.btnWrapper}>
-                                <Link href="#">Book now for only $15/day</Link> 
+                                <Link href="/book">Book now for only $15/day</Link> 
                             </div>
                         </Grid.Column>
                     </Grid.Row>
@@ -40,7 +38,7 @@ export default function Home (props) {
                                         <div className={styles.productPriceWrapper}>
                                             <Label className={styles.productPrice} tag>{`$ ${item.price.$numberDecimal}`}</Label>
                                             </div>
-                                        <Image className={styles.productImg}  src={`/img/products/${item.image}`} wrapped width={720} height={1280}/>
+                                        <Image className={styles.productImg}  src={`/img/product/${item.image}`} alt={`${item.name}'s image`} width={720} height={1280}/>
                                         <Card.Content className={styles.productCardContent}>
                                             <Card.Header className={styles.productName}>{item.name}</Card.Header>
                                             <Card.Meta className={styles.productCategory}>
