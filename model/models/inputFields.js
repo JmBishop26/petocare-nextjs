@@ -11,7 +11,7 @@ export const inputFields=(rooms)=>[
             {key: 'l', value: 'large', text: 'Large' },
         ]
     },
-    { id: 6, tag: "select", type: "", label: "Room Number" , name: "roomNum",
+    { id: 6, tag: "select", type: "", label: "Room Number" , name: "roomID",
         options: rooms.map((item, index)=>(
             {key: index, value: item._id, text: item.name }
         ))
