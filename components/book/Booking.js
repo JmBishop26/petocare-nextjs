@@ -5,17 +5,8 @@ import Image from 'next/image';
 import brand from '../../public/img/brand-logo.png'
 import data from '@/model/data';
 import { bookRoom, getRooms } from '@/lib/utils/Functions';
-// import { submitBooking } from '@/redux/action/booking/BookingAction';
-// import { connect } from 'react-redux';
+import ConditionalInput from '../generics/ConditionalInput';
 
-function Condition(props){
-    const {placeholder, name, condition, type, options, value, onChange} = props
-    return condition ?(
-        <Select placeholder={placeholder} name={name} options={options} className={style.select} value={value} onChange={onChange} required={true}/>
-    ) : (
-        <Input type={type} placeholder={placeholder} name={name} value={value} onChange={onChange} required/>
-    )
-}
 
 function Booking () {
 
@@ -60,7 +51,7 @@ function Booking () {
                                 <Grid.Column key={index} width={8} className={[style.bookGridColumn, style.fields].join(" ")}>
                                     <Form.Field required>
                                         <label><p>{item.label}</p></label>
-                                        <Condition 
+                                        <ConditionalInput 
                                             placeholder={item.label} 
                                             name={item.name} 
                                             condition={item.tag =="select"} 
@@ -88,17 +79,4 @@ function Booking () {
     );
 };
 
-// const mapStatetoProps=(state)=>{
-//     return{
-//         props: state.book.formData
-//     }
-// } 
-
-// const mapDispatchtoProps=(dispatch)=>{
-//     return{
-//         submitBooking: (formData)=>dispatch(submitBooking(formData))
-//     }
-// }
-
-// export default connect(mapStatetoProps,mapDispatchtoProps)(Booking)
 export default Booking

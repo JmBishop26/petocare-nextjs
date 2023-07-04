@@ -38,7 +38,7 @@ export default function Home (props) {
                                         <div className={styles.productPriceWrapper}>
                                             <Label className={styles.productPrice} tag>{`$ ${item.price.$numberDecimal}`}</Label>
                                             </div>
-                                        <Image className={styles.productImg}  src={`/img/product/${item.image}`} alt={`${item.name}'s image`} width={720} height={1280}/>
+                                        <Image className={styles.productImg} src={`${item.image}`} alt={`${item.name}'s image`} width={720} height={1280}/>
                                         <Card.Content className={styles.productCardContent}>
                                             <Card.Header className={styles.productName}>{item.name}</Card.Header>
                                             <Card.Meta className={styles.productCategory}>
@@ -49,7 +49,7 @@ export default function Home (props) {
                                             </Card.Description>
                                         </Card.Content>
                                         <Card.Content extra>
-                                            <Link href="#" className={styles.productBtn}>Buy Now</Link>
+                                            <Link href={`/buy-product/${item._id}`} className={styles.productBtn}>Buy Now</Link>
                                         </Card.Content>
                                     </Card>
                                 </Grid.Column>

@@ -39,4 +39,4 @@ export async function getServerSideProps() {
     }finally{
       await client.close();
     }
-  }
+}

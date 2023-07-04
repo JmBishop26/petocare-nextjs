@@ -3,4 +3,9 @@
     h1, p, span, input, button, .select{
         font-family: $font !important;
     }
+    input[name="number"]::-webkit-inner-spin-button, 
+    input[name="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none !important;
+        margin: 0;
+    }
 }
